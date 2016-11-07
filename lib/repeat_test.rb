@@ -11,7 +11,7 @@ class RepeatTest
       estimate = (Time.now - start_time).to_i * remaining
 
       if (command.include? "rspec")
-        result_line = result[/.*examples.*/]
+        result_line = result[/.*example(s\b|\b).*/]
         pass_num += result_line[/\d+/].to_i
 
         failures = result_line[/(\d+)(?!.*\d)/].to_i
