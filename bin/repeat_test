@@ -1,11 +1,15 @@
 #!/usr/bin/env ruby
 
-if (ARGV[0] == nil || ARGV[1] == nil)
+count = ARGV[0]
+command = ARGV[1]
+ARGV[2] == "true" ? output_all = true : output_all = false
+if (count == nil || command == nil)
   puts "Missing Args, expecting repeat_test {int} {string}"
   exit
 end
 
 require 'repeat_test'
+require 'pry'
 
 runner = RepeatTest.new
-runner.run(ARGV[0].to_i, ARGV[1])
+runner.run(count.to_i, command, output_all)
